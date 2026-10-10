@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Mapache</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=VT323&family=Gaegu:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="mp-page">
+    <div class="mp-calc">
+      <!-- Orejas -->
+      <span class="mp-ear mp-ear--left"></span>
+      <span class="mp-ear mp-ear--right"></span>
+
+      <!-- Cabeza -->
+      <div class="mp-head">
+
+        <!-- Frente: insignia y panel solar -->
+        <div class="mp-forehead">
+          <span class="mp-brand">SUNNY•TOY <span class="mp-brand__dot"></span></span>
+          <div class="mp-solar" title="Panel solar">
+            <span class="mp-solar__cell"></span><span class="mp-solar__cell"></span>
+            <span class="mp-solar__cell"></span><span class="mp-solar__cell"></span>
+          </div>
+        </div>
+
+        <!-- Pantalla -->
+        <div class="mp-lcd-bezel">
+          <div class="mp-lcd">
+            <div class="mp-lcd__glare"></div>
+            <div class="mp-lcd__top">
+              <div class="mp-lcd__mood">
+                <span class="mp-lcd__face" id="face">(=^.^=)</span>
+                <span class="mp-lcd__mood-text" id="mood">¡Hola solecito!</span>
+              </div>
+              <div class="mp-lcd__history" id="history">Listo para sumar ♪</div>
+            </div>
+            <div class="mp-lcd__main" id="main">0</div>
+            <!-- Explicación: procedimiento y resultado -->
+            <div class="mp-lcd__ticker" aria-live="polite">
+              <p id="procedure">¡Presiona los botones para empezar a jugar!</p>
+              <p id="result"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cara del mapache -->
+        <div class="mp-face" aria-hidden="true">
+          <span class="mp-face__brow mp-face__brow--left"></span>
+          <span class="mp-face__brow mp-face__brow--right"></span>
+          <div class="mp-face__mask"><span class="mp-eye"></span><span class="mp-eye"></span></div>
+          <span class="mp-face__muzzle"></span>
+          <span class="mp-face__nose"></span>
+        </div>
+
+        <div class="mp-stamp"><span>★</span> 12 digit kid companion <span>★</span></div>
+
+        <!-- Teclado -->
+        <section class="mp-keypad">
+          <button class="mp-key mp-key--mustard" data-key="clear" type="button"><span class="mp-key__main mp-key__main--action">AC</span><span class="mp-key__label">borrar</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="7" type="button"><span class="mp-key__main">7</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="8" type="button"><span class="mp-key__main">8</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="9" type="button"><span class="mp-key__main">9</span></button>
+          <button class="mp-key mp-key--sage" data-key="op" data-val="÷" type="button"><span class="mp-key__main mp-key__main--symbol">÷</span><span class="mp-key__label">repartir</span></button>
+
+          <button class="mp-key mp-key--cream" data-key="backspace" type="button"><span class="mp-key__main mp-key__main--small">⌫</span><span class="mp-key__label">atrás</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="4" type="button"><span class="mp-key__main">4</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="5" type="button"><span class="mp-key__main">5</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="6" type="button"><span class="mp-key__main">6</span></button>
+          <button class="mp-key mp-key--sage" data-key="op" data-val="×" type="button"><span class="mp-key__main mp-key__main--symbol">×</span><span class="mp-key__label">veces</span></button>
+
+          <button class="mp-key mp-key--sage" data-key="op" data-val="%" type="button"><span class="mp-key__main mp-key__main--small">%</span><span class="mp-key__label">por ciento</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="1" type="button"><span class="mp-key__main">1</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="2" type="button"><span class="mp-key__main">2</span></button>
+          <button class="mp-key mp-key--cream" data-key="num" data-val="3" type="button"><span class="mp-key__main">3</span></button>
+          <button class="mp-key mp-key--sage" data-key="op" data-val="-" type="button"><span class="mp-key__main mp-key__main--heavy">−</span><span class="mp-key__label">quitar</span></button>
+
+          <button class="mp-key mp-key--cream" data-key="num" data-val="0" type="button"><span class="mp-key__main">0</span></button>
+          <button class="mp-key mp-key--cream" data-key="dot" type="button"><span class="mp-key__main mp-key__main--dot">•</span></button>
+          <button class="mp-key mp-key--clay mp-key--wide" data-key="equals" type="button"><span class="mp-key__main mp-key__main--heavy">=</span><span class="mp-key__main--action">¡Calcular!</span><span class="mp-key__icon">☀️</span></button>
+          <button class="mp-key mp-key--sage" data-key="op" data-val="+" type="button"><span class="mp-key__main mp-key__main--heavy">+</span><span class="mp-key__label">juntar</span></button>
+        </section>
+
+        <footer class="mp-footer">
+          <span>© SUNNY LEARNING TOY CO.</span>
+          <span>MODELO ECO-PEBBLE 300</span>
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
