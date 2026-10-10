@@ -28,23 +28,36 @@
           </div>
         </div>
 
-        <!-- Pantalla -->
-        <div class="mp-lcd-bezel">
-          <div class="mp-lcd">
-            <div class="mp-lcd__glare"></div>
-            <div class="mp-lcd__top">
-              <div class="mp-lcd__mood">
-                <span class="mp-lcd__face" id="face">(=^.^=)</span>
-                <span class="mp-lcd__mood-text" id="mood">¡Hola solecito!</span>
+        <!-- Pantalla y teclas para desplazar la explicación -->
+        <div class="mp-display">
+          <div class="mp-lcd-bezel">
+            <div class="mp-lcd">
+              <div class="mp-lcd__glare"></div>
+              <div class="mp-lcd__top">
+                <div class="mp-lcd__mood">
+                  <span class="mp-lcd__face" id="face">(=^.^=)</span>
+                  <span class="mp-lcd__mood-text" id="mood">¡Hola solecito!</span>
+                </div>
+                <div class="mp-lcd__history" id="history">Listo para sumar ♪</div>
               </div>
-              <div class="mp-lcd__history" id="history">Listo para sumar ♪</div>
+              <div class="mp-lcd__main" id="main">0</div>
+              <!-- Explicación: procedimiento y resultado (se desplaza si no cabe) -->
+              <div class="mp-lcd__explain">
+                <div class="mp-lcd__ticker" id="ticker" aria-live="polite">
+                  <div class="mp-lcd__ticker-text">
+                    <p id="procedure">¡Presiona los botones para empezar a jugar!</p>
+                    <p id="result"></p>
+                  </div>
+                </div>
+                <span class="mp-lcd__hint mp-lcd__hint--up" id="hint-up" aria-hidden="true">▲</span>
+                <span class="mp-lcd__hint mp-lcd__hint--down" id="hint-down" aria-hidden="true">▼</span>
+              </div>
             </div>
-            <div class="mp-lcd__main" id="main">0</div>
-            <!-- Explicación: procedimiento y resultado -->
-            <div class="mp-lcd__ticker" aria-live="polite">
-              <p id="procedure">¡Presiona los botones para empezar a jugar!</p>
-              <p id="result"></p>
-            </div>
+          </div>
+
+          <div class="mp-scroll">
+            <button class="mp-key mp-key--cream mp-key--scroll" data-key="scroll-up" type="button" aria-label="Subir explicación"><span class="mp-key__main mp-key__main--arrow">▲</span><span class="mp-key__label">subir</span></button>
+            <button class="mp-key mp-key--cream mp-key--scroll" data-key="scroll-down" type="button" aria-label="Bajar explicación"><span class="mp-key__main mp-key__main--arrow">▼</span><span class="mp-key__label">bajar</span></button>
           </div>
         </div>
 
