@@ -1,3 +1,280 @@
 /* =========================================================
    Calculadora Mapache — estilos
    ========================================================= */
+
+/* ---------- Variables (colores, medidas y sombras) ---------- */
+:root {
+  /* Fondo */
+  --bg-top: #f3efe7;
+  --bg-mid: #e7e0d3;
+  --bg-bottom: #d9d0bf;
+
+  /* Pelaje y cara */
+  --fur-top: #dcd9d3;
+  --fur-mid: #c4bfb7;
+  --fur-bottom: #a9a39a;
+  --fur-rim: #f4f1ec;
+  --mask: #3b3733;
+  --mask-ring: #5a554e;
+  --eye: #f7f4ee;
+  --pupil: #1f1c1a;
+  --muzzle: #efe9df;
+
+  /* Teclas crema (números) */
+  --key-cream-top: #fffdf8;
+  --key-cream-mid: #f5efe4;
+  --key-cream-bottom: #e8dfcf;
+  --key-cream-border: #f1ece2;
+  --key-ink: #2f2a24;
+  --key-ink-muted: #5e5649;
+
+  /* Teclas salvia (operaciones) */
+  --key-sage-top: #eef2e8;
+  --key-sage-mid: #d3dec6;
+  --key-sage-bottom: #b6c6a3;
+  --key-sage-border: #e4eadc;
+  --key-sage-ink: #26331b;
+  --key-sage-label: #3a4a2c;
+
+  /* Tecla mostaza (AC) */
+  --key-mustard-top: #fbf3dc;
+  --key-mustard-mid: #f1dc9a;
+  --key-mustard-bottom: #e4c66c;
+  --key-mustard-border: #f6e8bd;
+  --key-mustard-ink: #3f310a;
+  --key-mustard-label: #4f3f10;
+
+  /* Tecla terracota (=) */
+  --key-clay-top: #f6dccb;
+  --key-clay-mid: #e8b496;
+  --key-clay-bottom: #d9926c;
+  --key-clay-border: #f1d2bf;
+  --key-clay-ink: #3b1a0b;
+
+  /* Pantalla LCD */
+  --lcd-bezel-top: #5a554e;
+  --lcd-bezel-bottom: #46423c;
+  --lcd-glass: #a9caa0;
+  --lcd-strip: rgba(0, 0, 0, 0.1);
+  --lcd-ink: #0f172a;
+  --lcd-ink-soft: #1e293b;
+  --lcd-ink-muted: #334155;
+
+  /* Detalles */
+  --solar-cell: #1a1721;
+  --solar-segment: #393447;
+  --badge-surface: rgba(255, 255, 255, 0.8);
+  --badge-border: #b9ad98;
+  --badge-ink: #3b3733;
+  --stamp-ink: #3b3733;
+  --signal: #d9a521;
+
+  /* Tipografías */
+  --font-display: "Fredoka", system-ui, sans-serif;
+  --font-lcd: "VT323", monospace;
+  --font-fun: "Gaegu", cursive;
+
+  /* Espaciado */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-2-5: 10px;
+  --space-3: 12px;
+
+  /* Bordes redondeados */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-mask: 20px;
+  --radius-head: 50%;
+  --radius-pill: 9999px;
+
+  /* Sombras */
+  --shadow-head: 0 20px 40px -10px rgba(60, 50, 40, 0.35), inset 0 6px 14px rgba(255, 255, 255, 0.75), inset 0 -10px 18px rgba(60, 50, 40, 0.22), inset 8px 0 14px rgba(255, 255, 255, 0.35), inset -8px 0 14px rgba(60, 50, 40, 0.18);
+  --shadow-key-cream: 0 4px 0 #b9ad98, 0 6px 8px rgba(70, 55, 35, 0.22), inset 0 3px 2px rgba(255, 255, 255, 0.9);
+  --shadow-key-cream-pressed: 0 1px 0 #a69a85, 0 3px 5px rgba(70, 55, 35, 0.22), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-key-sage: 0 4px 0 #7c8f68, 0 6px 8px rgba(50, 70, 35, 0.22), inset 0 3px 2px rgba(255, 255, 255, 0.85);
+  --shadow-key-sage-pressed: 0 1px 0 #6a7c57, 0 3px 5px rgba(50, 70, 35, 0.22), inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  --shadow-key-mustard: 0 4px 0 #a8892d, 0 6px 8px rgba(120, 95, 20, 0.22), inset 0 3px 2px rgba(255, 255, 255, 0.9);
+  --shadow-key-mustard-pressed: 0 1px 0 #8f7425, 0 3px 5px rgba(120, 95, 20, 0.22), inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  --shadow-key-clay: 0 4px 0 #9a5434, 0 7px 10px rgba(110, 55, 30, 0.28), inset 0 3px 2px rgba(255, 255, 255, 0.85);
+  --shadow-key-clay-pressed: 0 1px 0 #83462a, 0 3px 5px rgba(110, 55, 30, 0.28), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lcd: inset 0 4px 8px rgba(35, 60, 25, 0.45), inset 0 -2px 5px rgba(255, 255, 255, 0.6), 0 2px 5px rgba(255, 255, 255, 0.4);
+  --shadow-mask: inset 0 3px 6px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  /* Medidas */
+  --head-size: 540px;
+  --lcd-width: 300px;
+  --keypad-width: 296px;
+  --face-width: 330px;
+  --key-height: 40px;
+  --key-press-depth: 3px;
+  --lcd-min-height: 88px;
+  --ear-size: 104px;
+  --eye-size: 22px;
+}
+
+/* ---------- Página ---------- */
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.mp-page {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--space-3);
+  font-family: var(--font-display);
+  background: radial-gradient(circle at 50% 20%, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bottom) 100%);
+  user-select: none;
+}
+
+/* ---------- Cabeza y orejas ---------- */
+.mp-calc { position: relative; width: var(--head-size); padding-top: 28px; flex-shrink: 0; }
+@media (max-width: 560px) { .mp-calc { zoom: 0.8; } }
+@media (max-width: 450px) { .mp-calc { zoom: 0.68; } }
+@media (max-width: 370px) { .mp-calc { zoom: 0.6; } }
+
+.mp-ear {
+  position: absolute; top: 0; width: var(--ear-size); height: var(--ear-size);
+  border: 4px solid var(--fur-rim);
+  border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%;
+  background: linear-gradient(160deg, var(--fur-top), var(--fur-bottom));
+  box-shadow: var(--shadow-head); z-index: 0;
+}
+.mp-ear::after {
+  content: ""; position: absolute; left: 22%; right: 22%; top: 18%; bottom: 30%;
+  border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%; background: var(--mask);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.35);
+}
+.mp-ear--left { left: 36px; transform: rotate(-24deg); }
+.mp-ear--right { right: 36px; transform: rotate(24deg); }
+
+.mp-head {
+  position: relative; z-index: 1; width: var(--head-size); height: var(--head-size);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-radius: var(--radius-head); border: 4px solid var(--fur-rim);
+  background: linear-gradient(170deg, var(--fur-top) 0%, var(--fur-mid) 50%, var(--fur-bottom) 100%);
+  box-shadow: var(--shadow-head);
+}
+
+/* ---------- Frente: insignia y panel solar ---------- */
+.mp-forehead { display: flex; align-items: center; justify-content: center; gap: var(--space-2-5); margin-bottom: var(--space-2); }
+.mp-brand {
+  display: inline-flex; align-items: center; gap: 5px; padding: 3px var(--space-2);
+  background: var(--badge-surface); border: 1px solid var(--badge-border); border-radius: var(--radius-pill);
+  color: var(--badge-ink); font-size: 11px; line-height: 14px; font-weight: 700; letter-spacing: 0.05em;
+}
+.mp-brand__dot { position: relative; width: 7px; height: 7px; border-radius: var(--radius-pill); background: var(--signal); }
+.mp-brand__dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--signal);
+  animation: mp-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes mp-ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+
+.mp-solar { display: inline-flex; gap: 3px; padding: 5px var(--space-2); background: var(--solar-cell); border-radius: var(--radius-md); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3); }
+.mp-solar__cell { width: 7px; height: 13px; background: var(--solar-segment); border-radius: 2px; }
+
+/* ---------- Pantalla LCD ---------- */
+.mp-lcd-bezel {
+  width: var(--lcd-width); padding: var(--space-2); border-radius: var(--radius-xl);
+  background: linear-gradient(to bottom, var(--lcd-bezel-top), var(--lcd-bezel-bottom));
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+.mp-lcd {
+  position: relative; overflow: hidden; min-height: var(--lcd-min-height);
+  padding: var(--space-2) var(--space-2-5); border-radius: var(--radius-lg);
+  background: var(--lcd-glass); box-shadow: var(--shadow-lcd);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.mp-lcd__glare { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0) 50%); }
+.mp-lcd__top { position: relative; display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); padding-bottom: 3px; border-bottom: 1px solid var(--lcd-strip); }
+.mp-lcd__mood { display: inline-flex; align-items: center; gap: 4px; padding: 1px 6px; background: var(--lcd-strip); border-radius: var(--radius-md); white-space: nowrap; }
+.mp-lcd__face { font-family: var(--font-lcd); font-size: 13px; line-height: 18px; letter-spacing: 0.05em; color: var(--lcd-ink-soft); }
+.mp-lcd__mood-text { font-size: 9px; line-height: 12px; font-weight: 700; letter-spacing: -0.025em; text-transform: uppercase; color: var(--lcd-ink-muted); }
+.mp-lcd__history { font-family: var(--font-lcd); font-size: 12px; line-height: 16px; letter-spacing: 0.04em; color: var(--lcd-ink-muted); text-align: right; max-width: 130px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mp-lcd__main {
+  position: relative; margin: 3px 0; text-align: right;
+  font-family: var(--font-lcd); font-size: 34px; line-height: 1; font-weight: 700; letter-spacing: 0.05em;
+  color: var(--lcd-ink); text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  white-space: nowrap; overflow: hidden;
+}
+
+/* Franja de explicación: procedimiento + resultado (puede ocupar varias líneas) */
+.mp-lcd__ticker {
+  position: relative; min-height: 20px; padding: 3px 6px;
+  background: var(--lcd-strip); border-radius: var(--radius-sm);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+}
+.mp-lcd__ticker p {
+  margin: 0; text-align: center;
+  font-family: var(--font-fun); font-size: 12px; line-height: 1.2; font-weight: 700;
+  color: var(--lcd-ink-soft);
+}
+.mp-lcd__ticker p:empty { display: none; }
+.mp-lcd__ticker b { color: var(--lcd-ink); }
+
+/* ---------- Cara del mapache ---------- */
+.mp-face { position: relative; width: var(--face-width); height: 52px; margin: var(--space-2) 0 var(--space-1); flex-shrink: 0; }
+.mp-face__brow { position: absolute; top: 0; width: 52px; height: 8px; border-radius: var(--radius-pill); background: var(--muzzle); opacity: 0.9; }
+.mp-face__brow--left { left: 18%; transform: rotate(-8deg); }
+.mp-face__brow--right { right: 18%; transform: rotate(8deg); }
+.mp-face__mask {
+  position: absolute; left: 0; right: 0; top: 11px; height: 32px;
+  border-radius: var(--radius-mask) var(--radius-mask) 32px 32px / var(--radius-mask) var(--radius-mask) 18px 18px;
+  background: var(--mask); box-shadow: var(--shadow-mask);
+  display: flex; align-items: center; justify-content: space-around; padding: 0 12%;
+}
+.mp-eye { position: relative; width: var(--eye-size); height: var(--eye-size); border-radius: var(--radius-pill); background: var(--eye); box-shadow: 0 0 0 3px var(--mask-ring); }
+.mp-eye::after {
+  content: ""; position: absolute; width: 10px; height: 10px; left: 50%; top: 52%;
+  transform: translate(-50%, -50%); border-radius: var(--radius-pill); background: var(--pupil);
+}
+.mp-face__muzzle { position: absolute; left: 50%; top: 28px; width: 62px; height: 26px; transform: translateX(-50%); border-radius: 50%; background: var(--muzzle); }
+.mp-face__nose { position: absolute; left: 50%; top: 33px; width: 16px; height: 10px; transform: translateX(-50%); border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; background: var(--pupil); }
+
+/* ---------- Sellos ---------- */
+.mp-stamp { display: flex; align-items: center; gap: var(--space-1); margin: 0 0 var(--space-2); font-size: 9px; line-height: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stamp-ink); }
+.mp-footer { margin-top: var(--space-2-5); text-align: center; font-size: 8px; line-height: 11px; font-weight: 600; letter-spacing: 0.05em; color: var(--stamp-ink); }
+.mp-footer span { display: block; }
+
+/* ---------- Teclado ---------- */
+.mp-keypad { width: var(--keypad-width); display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-2); flex-shrink: 0; }
+
+.mp-key {
+  height: var(--key-height); padding: 0; cursor: pointer;
+  border-radius: var(--radius-lg); border: 1px solid transparent;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700;
+  transition: all 0.08s ease-in-out; -webkit-tap-highlight-color: transparent;
+}
+.mp-key:active, .mp-key.is-pressed { transform: translateY(var(--key-press-depth)); }
+.mp-key:focus-visible { outline: 3px solid var(--mask); outline-offset: 3px; }
+.mp-key--wide { grid-column: span 2; flex-direction: row; gap: 4px; }
+.mp-key__icon { font-size: 11px; line-height: 1; }
+
+.mp-key__main { font-size: 19px; line-height: 1; font-weight: 700; }
+.mp-key__main--symbol { font-size: 16px; }
+.mp-key__main--small { font-size: 18px; }
+.mp-key__main--dot { font-size: 30px; font-weight: 800; }
+.mp-key__main--heavy { font-weight: 800; }
+.mp-key__main--action { font-size: 11px; line-height: 14px; font-weight: 800; letter-spacing: 0.025em; text-transform: uppercase; }
+.mp-key__label { font-size: 7px; line-height: 1; font-weight: 700; margin-top: 1px; }
+
+/* Crema: números, ⌫ y punto */
+.mp-key--cream { color: var(--key-ink); border-color: var(--key-cream-border); background: linear-gradient(180deg, var(--key-cream-top) 0%, var(--key-cream-mid) 55%, var(--key-cream-bottom) 100%); box-shadow: var(--shadow-key-cream); }
+.mp-key--cream:active, .mp-key--cream.is-pressed { box-shadow: var(--shadow-key-cream-pressed); }
+.mp-key--cream .mp-key__label { color: var(--key-ink-muted); }
+
+/* Salvia: operaciones */
+.mp-key--sage { color: var(--key-sage-ink); border-color: var(--key-sage-border); background: linear-gradient(180deg, var(--key-sage-top) 0%, var(--key-sage-mid) 55%, var(--key-sage-bottom) 100%); box-shadow: var(--shadow-key-sage); }
+.mp-key--sage:active, .mp-key--sage.is-pressed { box-shadow: var(--shadow-key-sage-pressed); }
+.mp-key--sage .mp-key__label { color: var(--key-sage-label); }
+
+/* Mostaza: AC */
+.mp-key--mustard { color: var(--key-mustard-ink); border-color: var(--key-mustard-border); background: linear-gradient(180deg, var(--key-mustard-top) 0%, var(--key-mustard-mid) 55%, var(--key-mustard-bottom) 100%); box-shadow: var(--shadow-key-mustard); }
+.mp-key--mustard:active, .mp-key--mustard.is-pressed { box-shadow: var(--shadow-key-mustard-pressed); }
+.mp-key--mustard .mp-key__label { color: var(--key-mustard-label); font-size: 8px; margin-top: -1px; }
+
+/* Terracota: = ¡Calcular! */
+.mp-key--clay { color: var(--key-clay-ink); border-color: var(--key-clay-border); background: linear-gradient(180deg, var(--key-clay-top) 0%, var(--key-clay-mid) 55%, var(--key-clay-bottom) 100%); box-shadow: var(--shadow-key-clay); }
+.mp-key--clay:active, .mp-key--clay.is-pressed { box-shadow: var(--shadow-key-clay-pressed); }
